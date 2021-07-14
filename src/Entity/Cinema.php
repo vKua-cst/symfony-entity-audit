@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CinemaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=CinemaRepository::class)
@@ -31,6 +32,12 @@ class Cinema
      * @ORM\Column(type="string", length=255)
      */
     private $ville;
+
+    /**
+     * @Gedmo\Slug(fields={"raisonSociale"})
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -71,5 +78,10 @@ class Cinema
         $this->ville = $ville;
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 }

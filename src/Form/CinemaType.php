@@ -6,15 +6,18 @@ use App\Entity\Cinema;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class CinemaType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('raisonSociale')
-            ->add('adresse')
-            ->add('ville')
+            ->add('raisonSociale', TextType::class)
+            ->add('adresse', TextType::class)
+            ->add('ville', TextType::class)
+            ->add('Envoyer', SubmitType::class)
         ;
     }
 
