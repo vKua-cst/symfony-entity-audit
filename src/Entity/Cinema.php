@@ -39,6 +39,18 @@ class Cinema
      */
     private $slug;
 
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $dateAjout;
+
+    /**
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateModification;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -83,5 +95,15 @@ class Cinema
     public function getSlug(): ?string
     {
         return $this->slug;
+    }
+
+    public function getDateAjout(): ?\DateTimeInterface
+    {
+        return $this->dateAjout;
+    }
+
+    public function getDateModification(): ?\DateTimeInterface
+    {
+        return $this->dateModification;
     }
 }
